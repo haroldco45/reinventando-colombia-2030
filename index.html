@@ -124,6 +124,16 @@ textarea{width:100%;min-height:96px;border:1px solid var(--line);border-radius:1
 .quote{border-left:4px solid var(--gold);padding:4px 0 4px 14px;margin:18px 0 0;color:var(--muted);font-style:italic}
 
 .src li{margin-bottom:8px;font-size:14px}
+.tag{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--run);margin-bottom:6px}
+.prop h3,.feat h3{font-size:18px;margin-bottom:4px}
+.prop p{margin:0;color:var(--muted);font-size:14px}
+a.feat{display:block;text-decoration:none;color:#fff;background:linear-gradient(135deg,#0b1f3a 0%,#0f4c5c 100%);border:0}
+a.feat .tag{color:var(--gold)}
+a.feat p{margin:0;color:#d6e2ef;font-size:15px}
+a.feat b{color:var(--gold)}
+.steps{margin:0;padding-left:20px;color:var(--muted);font-size:14px}
+.steps li{margin-bottom:6px}
+.steps b{color:var(--ink)}
 footer{margin-top:40px;padding:26px 0 40px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
 footer b{color:var(--ink)}
 .toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%) translateY(80px);background:var(--navy);color:#fff;padding:10px 16px;border-radius:12px;font-size:14px;transition:transform .25s;z-index:9}
@@ -147,6 +157,7 @@ footer b{color:var(--ink)}
   <a href="#cifras">Cifras</a>
   <a href="#motores">Misión Crecer</a>
   <a href="#compromisos">Compromisos</a>
+  <a href="#bajo-cauca">Bajo Cauca</a>
   <a href="#contexto">Contexto</a>
   <a href="#mi-seguimiento">Mi seguimiento</a>
   <a href="#fuentes">Fuentes</a>
@@ -221,6 +232,38 @@ footer b{color:var(--ink)}
   </div>
 </section>
 
+<section id="bajo-cauca">
+  <div class="kicker">Énfasis regional</div>
+  <h2>¿Y el Bajo Cauca qué?</h2>
+  <p class="lead">Caucasia, Cáceres, El Bagre, Nechí, Tarazá y Zaragoza. Los 133 proyectos tocan sectores donde nuestra región tiene mucho que ofrecer. Estas son las propuestas que Vibras Positivas HM pone sobre la mesa para que el Bajo Cauca no quede por fuera del Plan Nacional de Desarrollo 2026‑2030.</p>
+
+  <a class="card feat" href="https://haroldco45.github.io/caucasia-puerto-del-cauca/" target="_blank" rel="noopener">
+    <div class="tag">🏝️ Turismo · Propuesta bandera</div>
+    <h3>Caucasia, Puerto del Cauca</h3>
+    <p>Malecón por la orilla del río Cauca, paseos en barcaza, Laguna El Silencio y Ruta Campesina por las parcelas de Paraguay. <b>Ver la propuesta completa →</b></p>
+  </a>
+
+  <div class="grid" style="margin-top:10px">
+    <div class="card prop"><div class="tag">🌾 Agroindustria</div><h3>La tierra campesina que sí produce</h3><p>Parcelas de un cuarterón o una hectárea entregadas a campesinos, como las de Paraguay, con asociación y tierra muy productiva. Lo que falta: centro de acopio, transformación local y compras públicas (colegios, PAE, hospitales) que les compren directo.</p></div>
+    <div class="card prop"><div class="tag">🛣️ Corredores logísticos</div><h3>Caucasia, nodo entre Medellín y la Costa</h3><p>Por aquí pasa la troncal hacia el Caribe y desde aquí ya se abastece a Bajo Cauca, Córdoba, Nordeste, Urabá y Sucre. Una plataforma logística regional bajaría costos para tenderos, campesinos y comerciantes.</p></div>
+    <div class="card prop"><div class="tag">🌱 Reconversión minera</div><h3>De tierra degradada a tierra productiva</h3><p>La minería dejó suelos dañados en los seis municipios. La Gobernación ya firmó en 2020 un convenio de más de $120.000 millones para recuperar áreas degradadas. Hay que pedir que se convierta en cultivos, bosques y turismo de naturaleza.</p></div>
+    <div class="card prop"><div class="tag">⚡ Energía</div><h3>Sol para fincas y parcelas</h3><p>Bombeo solar de agua y energía para veredas, para regar y conservar cosechas sin depender de la red.</p></div>
+    <div class="card prop"><div class="tag">📶 Conectividad digital</div><h3>Internet en las veredas</h3><p>Sin señal no hay venta en línea, ni clases, ni pagos digitales. Conectividad rural para que el campesino venda directo.</p></div>
+    <div class="card prop"><div class="tag">🧠 Talento</div><h3>Talento ColombIA en Caucasia</h3><p>Que la formación en inteligencia artificial y habilidades digitales llegue a los jóvenes del Bajo Cauca, con la sede de la Universidad de Antioquia y emprendedores locales como aliados.</p></div>
+  </div>
+
+  <div class="card" style="margin-top:12px">
+    <h3 style="font-size:18px;margin-bottom:8px">¿Cómo lo empujamos?</h3>
+    <ol class="steps">
+      <li><b>Alcaldía y Concejo de Caucasia:</b> que adopten las propuestas y las inscriban como proyectos.</li>
+      <li><b>Gobernación de Antioquia:</b> cofinanciación y apoyo técnico.</li>
+      <li><b>Vicepresidencia:</b> el vicepresidente invitó al sector privado a presentar propuestas nuevas. Hay que llegar antes de noviembre.</li>
+      <li><b>Plan Nacional de Desarrollo 2026‑2030:</b> participar en los diálogos regionales para que el Bajo Cauca quede escrito.</li>
+    </ol>
+    <div class="btns"><a class="btn wa" id="shareBC" href="#" target="_blank" rel="noopener">Compartir las propuestas del Bajo Cauca</a></div>
+  </div>
+</section>
+
 <section id="contexto">
   <div class="kicker">Por qué ahora</div>
   <h2>El contexto económico</h2>
@@ -259,13 +302,14 @@ footer b{color:var(--ink)}
     <li><a href="https://www.portafolio.co/economia/gobierno/vicepresidente-presenta-133-proyectos-por-us-120-324-millones-para-atraer-inversiones-a-colombia-504715" target="_blank" rel="noopener">Portafolio — Vicepresidente presenta 133 proyectos por US$120.324 millones (19 oct 2026)</a></li>
     <li><a href="https://dplnews.com/colombia-accenture-reune-200-lideres-empresariales-gobierno-y-academia-en-reinventando-colombia-2030-para-impulsar-el-crecimiento/" target="_blank" rel="noopener">DPL News — Accenture reúne 200 líderes en Reinventando Colombia 2030 (15 oct 2026)</a></li>
     <li><a href="https://ifmnoticias.com/gobierno/vicepresidente-restrepo-presenta-133-proyectos-por-us-120-324-millones-para-atra/" target="_blank" rel="noopener">IFM Noticias — Restrepo presenta 133 proyectos (19 oct 2026)</a></li>
+    <li><a href="https://antioquia.gov.co/oculto-noticias-secrtaria-de-minas/la-gobernacion-de-antioquia-a-traves-de-las-secretarias-de-medio-ambiente-de-minas-y-ria-firman-convenio-para-la-recuperacion-de-10000-areas-degradadas-en-el-bajo-cauca" target="_blank" rel="noopener">Gobernación de Antioquia — Convenio para recuperar áreas degradadas en el Bajo Cauca (nov 2020)</a></li>
   </ul>
 </section>
 
 <footer>
   <b>Reinventando Colombia 2030 · Seguimiento ciudadano</b><br>
   Una app de <b>Vibras Positivas HM</b> · Caucasia, Antioquia · WhatsApp 311 770 0431<br>
-  Última actualización: <span id="upd">19 de octubre de 2026, 9:45 p. m. (hora Colombia)</span><br>
+  Última actualización: <span id="upd">20 de octubre de 2026, 5:30 a. m. (hora Colombia)</span><br>
   Esta app no es oficial ni está vinculada al Gobierno ni a Accenture. Resume información pública de medios.
 </footer>
 
@@ -311,7 +355,8 @@ const PREG = [
   "¿Cuánta inversión consiguieron de verdad las Milagro Weeks de noviembre?",
   "¿Se publicó el documento de Accenture con las conclusiones?",
   "¿Qué quedó de este encuentro en el Plan Nacional de Desarrollo 2026‑2030?",
-  "¿Cuántos empleos formales prometen los proyectos y cuántos se crearon?"
+  "¿Cuántos empleos formales prometen los proyectos y cuántos se crearon?",
+  "¿Quedó algún proyecto de turismo sobre el río Cauca o para las parcelas campesinas?"
 ];
 const KEY="rc2030-v1";
 let st={c:{},n:""};
@@ -333,6 +378,8 @@ nota.addEventListener("input",()=>{ st.n=nota.value; save(); });
 const url = location.href.split("#")[0];
 const msg = `🇨🇴 *Reinventando Colombia 2030*\n133 proyectos · US$120.324 millones · meta de crecer al 6 %.\n¿Se va a cumplir? Hagámosle seguimiento aquí 👇\n${url}`;
 document.getElementById("share").href = "https://wa.me/?text="+encodeURIComponent(msg);
+const msgBC = `🏞️ *¿Y el Bajo Cauca qué?*\nEn Reinventando Colombia 2030 se reparten 133 proyectos. Estas son las propuestas para Caucasia y la región: turismo en el río Cauca, parcelas campesinas, logística, reconversión minera y más 👇\n${url}#bajo-cauca`;
+document.getElementById("shareBC").href = "https://wa.me/?text="+encodeURIComponent(msgBC);
 document.getElementById("copy").onclick = async()=>{
   try{ await navigator.clipboard.writeText(url); }catch(e){}
   const t=document.getElementById("toast"); t.classList.add("show"); setTimeout(()=>t.classList.remove("show"),1800);
