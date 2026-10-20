@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Reinventando Colombia 2030 · Seguimiento ciudadano</title>
+<meta name="description" content="Seguimiento ciudadano a Reinventando Colombia 2030: los 133 proyectos, la meta del 6 % y los compromisos de las mesas. Una app de Vibras Positivas HM.">
+<meta name="theme-color" content="#0b1f3a">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta property="og:title" content="Reinventando Colombia 2030 · Seguimiento ciudadano">
+<meta property="og:description" content="133 proyectos, US$120.324 millones y una meta de crecer al 6 %. Aquí le hacemos seguimiento.">
+<meta property="og:image" content="icon-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f6f3ec; --card:#ffffff; --ink:#14213d; --muted:#5b6578; --line:#e3ddd0;
+  --navy:#0b1f3a; --gold:#f2b705; --blue:#1d4ed8; --red:#c8102e;
+  --ok:#15803d; --run:#b45309; --wait:#64748b;
+  --okbg:#dcfce7; --runbg:#fef3c7; --waitbg:#eef2f7;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0c1220; --card:#141c2e; --ink:#e8ecf4; --muted:#9aa6bb; --line:#26304a;
+    --okbg:#12341f; --runbg:#3a2a0a; --waitbg:#1e2638;
+    --ok:#4ade80; --run:#fbbf24; --wait:#94a3b8;
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--blue)}
+@media (prefers-color-scheme: dark){a{color:#7aa2ff}}
+.wrap{max-width:860px;margin:0 auto;padding:0 16px}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;line-height:1.15;margin:0}
+
+/* hero */
+.hero{background:var(--navy);color:#fff;padding:28px 0 34px;position:relative;overflow:hidden}
+.flag{position:absolute;left:0;right:0;bottom:0;height:6px;display:flex}
+.flag i{flex:2;background:var(--gold)}.flag i+i{flex:1;background:var(--blue)}.flag i+i+i{background:var(--red)}
+.brand{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.75;font-weight:600}
+.hero h1{font-size:clamp(30px,7vw,48px);font-weight:800;margin:10px 0 8px}
+.hero h1 span{color:var(--gold)}
+.hero p{margin:0;max-width:600px;opacity:.88}
+.pill{display:inline-flex;gap:6px;align-items:center;margin-top:16px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);padding:6px 12px;border-radius:999px;font-size:13px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 0 rgba(242,183,5,.7);animation:p 2s infinite}
+@keyframes p{70%{box-shadow:0 0 0 10px rgba(242,183,5,0)}100%{box-shadow:0 0 0 0 rgba(242,183,5,0)}}
+
+/* nav */
+nav{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;padding-top:8px;padding-bottom:8px}
+nav a{flex:none;text-decoration:none;color:var(--muted);font-weight:600;font-size:14px;padding:7px 12px;border-radius:999px}
+nav a.on{background:var(--navy);color:#fff}
+@media (prefers-color-scheme: dark){nav a.on{background:var(--gold);color:#14213d}}
+
+section{padding:34px 0 8px;scroll-margin-top:56px}
+.kicker{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:700}
+section h2{font-size:clamp(24px,5vw,32px);margin:6px 0 14px}
+.lead{color:var(--muted);margin:0 0 18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+@media(min-width:640px){.stats{grid-template-columns:repeat(3,1fr)}}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px}
+.stat b{display:block;font-family:Fraunces,Georgia,serif;font-size:clamp(26px,6vw,34px);font-weight:800;line-height:1.05}
+.stat small{display:block;color:var(--muted);font-size:13px;margin-top:6px}
+.stat.hl{background:var(--navy);color:#fff;border-color:var(--navy)}
+.stat.hl b{color:var(--gold)}.stat.hl small{color:#c9d3e6}
+
+/* bar */
+.bar{margin-top:14px}
+.bar .track{height:14px;border-radius:99px;background:var(--waitbg);overflow:hidden;display:flex}
+.bar .a{background:var(--gold)}.bar .b{background:var(--blue)}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:13px;color:var(--muted);margin-top:8px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:middle}
+
+/* motores */
+.grid{display:grid;gap:10px;grid-template-columns:1fr}
+@media(min-width:640px){.grid{grid-template-columns:repeat(2,1fr)}}
+.motor{display:flex;gap:12px;align-items:flex-start}
+.motor .n{flex:none;width:36px;height:36px;border-radius:10px;background:var(--gold);color:#14213d;display:grid;place-items:center;font-weight:800}
+.motor h3{font-size:18px;margin-bottom:2px}
+.motor p{margin:0;color:var(--muted);font-size:14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:var(--card);border:1px solid var(--line);padding:7px 12px;border-radius:999px;font-size:14px;font-weight:500}
+
+/* timeline */
+.tl{list-style:none;margin:0;padding:0;position:relative}
+.tl:before{content:"";position:absolute;left:15px;top:6px;bottom:6px;width:2px;background:var(--line)}
+.tl li{position:relative;padding:0 0 18px 44px}
+.tl .ic{position:absolute;left:4px;top:2px;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:13px;font-weight:800;border:2px solid var(--bg)}
+.ic.ok{background:var(--ok);color:#fff}.ic.run{background:var(--run);color:#fff}.ic.wait{background:var(--card);color:var(--wait);border-color:var(--line)}
+.tl .when{font-size:13px;color:var(--muted);font-weight:600}
+.tl h3{font-family:Inter,sans-serif;font-size:16px;font-weight:700;margin:2px 0 4px}
+.tl p{margin:0;color:var(--muted);font-size:14px}
+.badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:3px 8px;border-radius:6px;margin-left:6px;vertical-align:middle}
+.badge.ok{background:var(--okbg);color:var(--ok)}.badge.run{background:var(--runbg);color:var(--run)}.badge.wait{background:var(--waitbg);color:var(--wait)}
+
+/* checklist */
+.check{list-style:none;margin:0;padding:0}
+.check li{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--line)}
+.check li:last-child{border:0}
+.check input{width:22px;height:22px;margin:1px 0 0;accent-color:var(--navy);flex:none}
+@media (prefers-color-scheme: dark){.check input{accent-color:var(--gold)}}
+.check label{cursor:pointer}
+.check li.done label{color:var(--muted);text-decoration:line-through}
+.prog{font-size:14px;color:var(--muted);margin:0 0 10px}
+textarea{width:100%;min-height:96px;border:1px solid var(--line);border-radius:12px;padding:12px;font:inherit;background:var(--bg);color:var(--ink);resize:vertical}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.btn{appearance:none;border:0;border-radius:12px;padding:12px 16px;font:600 15px Inter,sans-serif;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.btn.wa{background:#25d366;color:#06301a}
+.btn.sec{background:var(--card);color:var(--ink);border:1px solid var(--line)}
+.btn.pri{background:var(--navy);color:#fff}
+@media (prefers-color-scheme: dark){.btn.pri{background:var(--gold);color:#14213d}}
+
+.ctx{display:grid;gap:10px;grid-template-columns:1fr}
+@media(min-width:640px){.ctx{grid-template-columns:repeat(2,1fr)}}
+.ctx .card b{font-family:Fraunces,Georgia,serif;font-size:26px;display:block}
+.ctx .card span{color:var(--muted);font-size:14px}
+
+.quote{border-left:4px solid var(--gold);padding:4px 0 4px 14px;margin:18px 0 0;color:var(--muted);font-style:italic}
+
+.src li{margin-bottom:8px;font-size:14px}
+footer{margin-top:40px;padding:26px 0 40px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+footer b{color:var(--ink)}
+.toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%) translateY(80px);background:var(--navy);color:#fff;padding:10px 16px;border-radius:12px;font-size:14px;transition:transform .25s;z-index:9}
+.toast.show{transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="brand">Vibras Positivas HM · Seguimiento ciudadano</div>
+    <h1>Reinventando<br>Colombia <span>2030</span></h1>
+    <p>El Gobierno, los empresarios y la academia se sentaron a planear cómo hacer crecer la economía al 6 %. Aquí anotamos lo que prometieron y vamos marcando lo que se cumple.</p>
+    <div class="pill"><span class="dot"></span><span id="estadoHoy">Mesas sectoriales en curso · 20 oct 2026</span></div>
+  </div>
+  <div class="flag"><i></i><i></i><i></i></div>
+</header>
+
+<nav id="nav"><div class="wrap">
+  <a href="#que-es" class="on">Qué es</a>
+  <a href="#cifras">Cifras</a>
+  <a href="#motores">Misión Crecer</a>
+  <a href="#compromisos">Compromisos</a>
+  <a href="#contexto">Contexto</a>
+  <a href="#mi-seguimiento">Mi seguimiento</a>
+  <a href="#fuentes">Fuentes</a>
+</div></nav>
+
+<main class="wrap">
+
+<section id="que-es">
+  <div class="kicker">En pocas palabras</div>
+  <h2>¿Qué es Reinventando Colombia 2030?</h2>
+  <div class="card">
+    <p style="margin-top:0">Es un encuentro de dos días, el <b>19 y 20 de octubre de 2026</b> en el auditorio del CESA en Bogotá, organizado por <b>Accenture</b> con la <b>Vicepresidencia de la República</b>. El lema es <b>"Creer para crecer"</b>.</p>
+    <p>Más de 360 asistentes, 24 líderes de mesa y 13 ministros invitados trabajan en <b>12 mesas sectoriales</b>. Cada mesa debe señalar prioridades, barreras y <b>propuestas medibles con un responsable definido</b>.</p>
+    <p style="margin-bottom:0">Lo que salga de ahí lo recoge Accenture en un documento que llega a la Vicepresidencia en <b>noviembre</b> y servirá de insumo para el <b>Plan Nacional de Desarrollo 2026‑2030</b>, la hoja de ruta que el Gobierno lleva al Congreso.</p>
+  </div>
+  <p class="quote">"De nada servirá crecer al 6 % si no enfrentamos la pobreza y no generamos empleo." — Idea central del vicepresidente José Manuel Restrepo en la apertura.</p>
+</section>
+
+<section id="cifras">
+  <div class="kicker">Lo que se anunció</div>
+  <h2>Las cifras del portafolio</h2>
+  <div class="stats">
+    <div class="stat hl"><b>133</b><small>proyectos de inversión en el portafolio</small></div>
+    <div class="stat hl"><b>US$120.324 M</b><small>valor total de los 133 proyectos</small></div>
+    <div class="stat"><b>86</b><small>priorizados para las Milagro Weeks</small></div>
+    <div class="stat"><b>US$56.799 M</b><small>inversión prevista de los 86 priorizados</small></div>
+    <div class="stat"><b>53</b><small>listos para rondas de inversión o financiación</small></div>
+    <div class="stat"><b>6 %</b><small>meta de crecimiento económico</small></div>
+  </div>
+  <div class="card bar">
+    <div style="font-weight:600;font-size:14px">¿Cuánto del portafolio ya está priorizado?</div>
+    <div class="track" style="margin-top:10px"><div class="a" style="width:47.2%"></div><div class="b" style="width:52.8%"></div></div>
+    <div class="legend"><span><i style="background:var(--gold)"></i>Priorizado: US$56.799 M (47 %)</span><span><i style="background:var(--blue)"></i>Resto: US$63.525 M (53 %)</span></div>
+  </div>
+  <h3 style="font-size:20px;margin:22px 0 10px">Sectores del portafolio</h3>
+  <div class="chips">
+    <span class="chip">🛣️ Infraestructura y corredores logísticos</span>
+    <span class="chip">⚡ Energía</span>
+    <span class="chip">📶 Conectividad digital</span>
+    <span class="chip">🧠 Servicios de conocimiento</span>
+    <span class="chip">🌾 Agroindustria</span>
+    <span class="chip">🏥 Salud</span>
+    <span class="chip">🏭 Manufactura</span>
+    <span class="chip">🏝️ Turismo</span>
+  </div>
+  <h3 style="font-size:20px;margin:22px 0 10px">Temas de las mesas</h3>
+  <div class="chips">
+    <span class="chip">Energía</span><span class="chip">Infraestructura</span><span class="chip">Salud</span><span class="chip">Agroindustria</span><span class="chip">Ciencia y Tecnología</span><span class="chip">Educación</span><span class="chip">Sector Financiero</span><span class="chip">… y otras más</span>
+  </div>
+</section>
+
+<section id="motores">
+  <div class="kicker">La estrategia detrás</div>
+  <h2>Misión Crecer: 5 motores</h2>
+  <p class="lead">Es la agenda del vicepresidente para llegar al 6 %. El encuentro busca darle proyectos concretos.</p>
+  <div class="grid">
+    <div class="card motor"><div class="n">1</div><div><h3>Talento</h3><p>Formación en inteligencia artificial y habilidades digitales con Talento ColombIA.</p></div></div>
+    <div class="card motor"><div class="n">2</div><div><h3>Modernización del Estado</h3><p>Menos trámites para que invertir y emprender sea más fácil.</p></div></div>
+    <div class="card motor"><div class="n">3</div><div><h3>Energía</h3><p>Desarrollo de proyectos energéticos.</p></div></div>
+    <div class="card motor"><div class="n">4</div><div><h3>Inversión</h3><p>Atraer capital privado con el portafolio de 133 proyectos.</p></div></div>
+    <div class="card motor"><div class="n">5</div><div><h3>Financiamiento</h3><p>Rondas de inversión y financiación para los proyectos listos.</p></div></div>
+    <div class="card"><h3 style="font-size:18px;margin-bottom:6px">¿Quién hace qué?</h3><p style="margin:0;color:var(--muted);font-size:14px"><b style="color:var(--ink)">Vicepresidencia:</b> articula, prioriza y hace seguimiento.<br><b style="color:var(--ink)">Ministerios:</b> lideran la ejecución.<br><b style="color:var(--ink)">Empresarios:</b> invierten y generan empleo.</p></div>
+  </div>
+</section>
+
+<section id="compromisos">
+  <div class="kicker">La bitácora</div>
+  <h2>Compromisos y fechas</h2>
+  <p class="lead">Así vamos. Cada vez que haya novedad, actualizamos el estado.</p>
+  <div class="card">
+    <ul class="tl" id="timeline"></ul>
+  </div>
+</section>
+
+<section id="contexto">
+  <div class="kicker">Por qué ahora</div>
+  <h2>El contexto económico</h2>
+  <div class="ctx">
+    <div class="card"><b>55 %</b><span>informalidad laboral según el DANE</span></div>
+    <div class="card"><b>−0,2 pp</b><span>lo que la baja productividad le ha restado cada año al crecimiento del PIB en dos décadas (Colombia Compite)</span></div>
+    <div class="card"><b>≈ 7 % del PIB</b><span>déficit fiscal que proyecta el FMI para 2026; pidió un ajuste urgente</span></div>
+    <div class="card"><b>−0,04 %</b><span>leve contracción del indicador de actividad económica del DANE en agosto</span></div>
+  </div>
+  <p class="lead" style="margin-top:14px">Con poca plata pública, el Gobierno le apuesta a la inversión privada para reactivar el crecimiento.</p>
+</section>
+
+<section id="mi-seguimiento">
+  <div class="kicker">Control ciudadano</div>
+  <h2>Mi seguimiento</h2>
+  <p class="lead">Preguntas que cualquier ciudadano, desde Caucasia o desde cualquier región, puede hacerle a este proceso. Márcalas cuando tengas respuesta. Se guarda en tu celular.</p>
+  <div class="card">
+    <p class="prog" id="prog"></p>
+    <ul class="check" id="checklist"></ul>
+  </div>
+  <div class="card" style="margin-top:12px">
+    <label for="nota" style="font-weight:600">Mis notas</label>
+    <p style="margin:4px 0 10px;color:var(--muted);font-size:14px">Anota lo que vas viendo en noticias o lo que quieres preguntar a tu concejal, alcalde o representante.</p>
+    <textarea id="nota" placeholder="Ej.: ¿Hay algún proyecto de las 86 Milagro Weeks para el Bajo Cauca?"></textarea>
+    <div class="btns">
+      <a class="btn wa" id="share" href="#" target="_blank" rel="noopener">Compartir por WhatsApp</a>
+      <button class="btn sec" id="copy" type="button">Copiar enlace</button>
+    </div>
+  </div>
+</section>
+
+<section id="fuentes">
+  <div class="kicker">Para verificar</div>
+  <h2>Fuentes</h2>
+  <ul class="src">
+    <li><a href="https://www.portafolio.co/economia/gobierno/vicepresidente-presenta-133-proyectos-por-us-120-324-millones-para-atraer-inversiones-a-colombia-504715" target="_blank" rel="noopener">Portafolio — Vicepresidente presenta 133 proyectos por US$120.324 millones (19 oct 2026)</a></li>
+    <li><a href="https://dplnews.com/colombia-accenture-reune-200-lideres-empresariales-gobierno-y-academia-en-reinventando-colombia-2030-para-impulsar-el-crecimiento/" target="_blank" rel="noopener">DPL News — Accenture reúne 200 líderes en Reinventando Colombia 2030 (15 oct 2026)</a></li>
+    <li><a href="https://ifmnoticias.com/gobierno/vicepresidente-restrepo-presenta-133-proyectos-por-us-120-324-millones-para-atra/" target="_blank" rel="noopener">IFM Noticias — Restrepo presenta 133 proyectos (19 oct 2026)</a></li>
+  </ul>
+</section>
+
+<footer>
+  <b>Reinventando Colombia 2030 · Seguimiento ciudadano</b><br>
+  Una app de <b>Vibras Positivas HM</b> · Caucasia, Antioquia · WhatsApp 311 770 0431<br>
+  Última actualización: <span id="upd">19 de octubre de 2026, 9:45 p. m. (hora Colombia)</span><br>
+  Esta app no es oficial ni está vinculada al Gobierno ni a Accenture. Resume información pública de medios.
+</footer>
+
+</main>
+<div class="toast" id="toast">Enlace copiado</div>
+
+<script>
+// ---- Bitácora de compromisos: actualizar aquí el estado (ok | run | wait) ----
+const HITOS = [
+  {when:"19 oct 2026", t:"Apertura del encuentro", d:"El vicepresidente presenta los 133 proyectos y los avances de Misión Crecer.", s:"ok"},
+  {when:"20 oct 2026", t:"Trabajo en las 12 mesas sectoriales", d:"Cada mesa propone prioridades, barreras y metas medibles con responsable.", s:"run", from:"2026-10-20", to:"2026-10-20"},
+  {when:"Noviembre 2026", t:"Milagro Weeks: ruedas de inversión", d:"Los 86 proyectos priorizados (US$56.799 M) salen a buscar inversionistas.", s:"wait"},
+  {when:"Noviembre 2026", t:"Documento de Accenture a la Vicepresidencia", d:"Consolida las conclusiones de todas las mesas.", s:"wait"},
+  {when:"Próximos meses", t:"Plan Nacional de Desarrollo 2026‑2030 al Congreso", d:"El documento del encuentro sirve como insumo del plan.", s:"wait"},
+  {when:"Cada año", t:"Revisión anual de compromisos (Summit)", d:"Seguimiento permanente a lo que se comprometió cada sector.", s:"wait"}
+];
+const LBL = {ok:"Cumplido", run:"En curso", wait:"Pendiente"};
+const IC = {ok:"✓", run:"●", wait:""};
+
+// Ajuste automático por fecha en hora Colombia
+function hoyCO(){ return new Date(new Date().toLocaleString("en-US",{timeZone:"America/Bogota"})); }
+const hoy = hoyCO();
+const ymd = d => d.getFullYear()*10000+(d.getMonth()+1)*100+d.getDate();
+HITOS.forEach(h=>{
+  if(h.to){ const to=new Date(h.to+"T23:59:59"); if(ymd(hoy)>ymd(to) && h.s==="run") h.s="ok"; }
+});
+const est = document.getElementById("estadoHoy");
+if(ymd(hoy) < 20261020) est.textContent = "Mañana 20 oct: mesas sectoriales";
+else if(ymd(hoy) === 20261020) est.textContent = "Hoy: mesas sectoriales en curso";
+else est.textContent = "Encuentro terminado · esperando el documento de noviembre";
+
+document.getElementById("timeline").innerHTML = HITOS.map(h=>`
+  <li><span class="ic ${h.s}">${IC[h.s]}</span>
+  <div class="when">${h.when}<span class="badge ${h.s}">${LBL[h.s]}</span></div>
+  <h3>${h.t}</h3><p>${h.d}</p></li>`).join("");
+
+// ---- Checklist ciudadano ----
+const PREG = [
+  "¿Cuáles son los 133 proyectos y dónde está publicada la lista completa?",
+  "¿Alguno de los proyectos priorizados queda en el Bajo Cauca o en Antioquia?",
+  "¿Qué compromisos medibles salieron de la mesa de Agroindustria?",
+  "¿Qué compromisos salieron de la mesa de Educación y de Ciencia y Tecnología?",
+  "¿Cuánta inversión consiguieron de verdad las Milagro Weeks de noviembre?",
+  "¿Se publicó el documento de Accenture con las conclusiones?",
+  "¿Qué quedó de este encuentro en el Plan Nacional de Desarrollo 2026‑2030?",
+  "¿Cuántos empleos formales prometen los proyectos y cuántos se crearon?"
+];
+const KEY="rc2030-v1";
+let st={c:{},n:""};
+try{ st = JSON.parse(localStorage.getItem(KEY)) || st; }catch(e){}
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify(st)); }catch(e){} }
+const ul=document.getElementById("checklist");
+function renderCheck(){
+  ul.innerHTML = PREG.map((p,i)=>`<li class="${st.c[i]?'done':''}"><input type="checkbox" id="q${i}" ${st.c[i]?'checked':''}><label for="q${i}">${p}</label></li>`).join("");
+  const n = Object.values(st.c).filter(Boolean).length;
+  document.getElementById("prog").textContent = `${n} de ${PREG.length} preguntas con respuesta`;
+}
+ul.addEventListener("change",e=>{ const i=e.target.id.slice(1); st.c[i]=e.target.checked; save(); renderCheck(); });
+renderCheck();
+const nota=document.getElementById("nota");
+nota.value = st.n||"";
+nota.addEventListener("input",()=>{ st.n=nota.value; save(); });
+
+// ---- Compartir ----
+const url = location.href.split("#")[0];
+const msg = `🇨🇴 *Reinventando Colombia 2030*\n133 proyectos · US$120.324 millones · meta de crecer al 6 %.\n¿Se va a cumplir? Hagámosle seguimiento aquí 👇\n${url}`;
+document.getElementById("share").href = "https://wa.me/?text="+encodeURIComponent(msg);
+document.getElementById("copy").onclick = async()=>{
+  try{ await navigator.clipboard.writeText(url); }catch(e){}
+  const t=document.getElementById("toast"); t.classList.add("show"); setTimeout(()=>t.classList.remove("show"),1800);
+};
+
+// ---- Nav activa ----
+const links=[...document.querySelectorAll("nav a")];
+const io=new IntersectionObserver(es=>{es.forEach(en=>{ if(en.isIntersecting){ links.forEach(a=>a.classList.toggle("on",a.getAttribute("href")==="#"+en.target.id)); const on=links.find(a=>a.classList.contains("on")); on&&on.scrollIntoView({inline:"center",block:"nearest"}); } })},{rootMargin:"-45% 0px -50% 0px"});
+document.querySelectorAll("section").forEach(s=>io.observe(s));
+
+// ---- PWA ----
+if("serviceWorker" in navigator){ addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{})); }
+</script>
+</body>
+</html>
